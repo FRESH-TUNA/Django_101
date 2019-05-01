@@ -5,7 +5,7 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('create', views.create, name="create"),
     path('<int:phoneBookId>/update', views.update, name="update"),
-    path('<int:pk>/delete', views.delete, name="delete"),
+    path('delete/<int:phoneBookId>', views.delete, name="delete"),
 ]
 
 #현재폴더는 .
