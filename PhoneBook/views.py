@@ -21,7 +21,12 @@ def update(request, phoneBookId):
         return redirect('index')
 
 def delete(request, phoneBookId):
-    return render(request, "PhoneBook/about.html")
+    phoneNumber = get_object_or_404(Phonebook, pk=phoneBookId)
+    if request.method == "GET":
+        return render(request, "PhoneBook/delete.html", {'phoneNumber' : phoneNumber})
+    else:
+        phoneNumber.delete()
+        return redirect('index')
 
 def about(request):
     return render(request, "PhoneBook/about.html")
