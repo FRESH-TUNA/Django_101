@@ -17,8 +17,10 @@
                 </ul>
             </div>   
         </nav>
-
-        <h1>PhoneBook</h1>
+            <div class="container-fluid">
+                <h1>PhoneBook</h1>
+                <a href="/PhoneBook/create"><button class="btn btn-primary">New phoneNumber</button></a>
+            </div>
             <div class="container-fluid">
             <!--bootstrap style table class="table"-->
             <!--using thead and tbody and tr td-->
@@ -31,12 +33,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for phone in phoneNumbers %}
+                    {% for phoneNumber in phoneNumbers %}
                         <tr>
-                            <td>{{phone.name}}</td>
-                            <td>{{phone.phonenumber}}</td>
-                            <td><button class="btn btn-primary">edit</button></td>
-                            <td><button class="btn btn-warning">remove</button></td>
+                            <td>{{phoneNumber.name}}</td>
+                            <td>{{phoneNumber.phoneNumber}}</td>
+                            <td><a href="{{phoneNumber.phoneBookId}}/update"><button class="btn btn-primary">edit</button></a></td>
+                            <td><a href="{{phoneNumber.phoneBookId}}/delete"><button class="btn btn-warning">remove</button></a></td>
                         </tr>
                     {% empty %}
                         <tr>

@@ -9,9 +9,9 @@ from django.db import models
 
 
 class Phonebook(models.Model):
-    phonebookid = models.IntegerField(db_column='phoneBookId', primary_key=True)  # Field name made lowercase.
+    phoneBookId = models.IntegerField(db_column='phoneBookId', primary_key=True)  # Field name made lowercase.
     name = models.TextField(blank=True, null=True)
-    phonenumber = models.IntegerField(db_column='phoneNumber', blank=True, null=True)  # Field name made lowercase.
+    phoneNumber = models.IntegerField(db_column='phoneNumber', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
