@@ -7,8 +7,14 @@ def index(request):
     phoneNumbers = Phonebook.objects.all()
     return render(request, "PhoneBook/index.html", {'phoneNumbers':phoneNumbers})
 
+def inputContext(request):
+    return render(request, "PhoneBook/create.html")
 def create(request):
-    return render(request, "PhoneBook/about.html")
+    phoneNumber = Phonebook()
+    phoneNumber.name = request.GET['name']
+    phoneNumber.phoneNumber = request.GET['phoneNumber']
+    phoneNumber.save()
+    return redirect('index')
 
 def update(request, phoneBookId):
     phoneNumber = get_object_or_404(Phonebook, pk=phoneBookId)
